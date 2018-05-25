@@ -1,0 +1,44 @@
+---
+layout: post
+title:  "Tissot’s indicatrix"
+date:   2018-05-24 12:00:00 +0200
+categories: explore
+---
+
+<p id="viewofp"></p>
+<div class="fullwidth">
+  <div id="display"></div>
+</div>
+
+<script type="module">
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.0.1?module";
+  import notebook from "https://api.observablehq.com/@fil/tissots-indicatrix.js?key=1ef8c91929d29461";
+  const renders = {
+    "display": "#display",
+    "viewof p": "#viewofp",
+  };
+  Runtime.load(notebook, (variable) => {
+    const selector = renders[variable.name];
+    if (selector) {
+      return new Inspector(document.querySelector(selector));
+    } else {
+      // return true; // useful only for the rare notebooks that uses side effects
+    }
+  });
+</script>
+
+
+<style>
+/* https://css-tricks.com/full-width-containers-limited-width-parents/ */
+.fullwidth {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+#display { min-height: 40vw }
+</style>
+
+[Source](https://api.observablehq.com/@fil/tissots-indicatrix)

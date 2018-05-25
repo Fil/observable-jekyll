@@ -1,0 +1,26 @@
+---
+layout: post
+title:  "Fisheye"
+date:   2018-05-24 12:00:00 +0200
+categories: explore
+---
+
+<div id="display"></div>
+
+<script type="module">
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.0.1?module";
+  import notebook from "https://api.observablehq.com/d/ccba2c4738b03c7e.js?key=84a042ea455b5761";
+  const renders = {
+    "display": "#display",
+  };
+  Runtime.load(notebook, (variable) => {
+    const selector = renders[variable.name];
+    if (selector) {
+      return new Inspector(document.querySelector(selector));
+    } else {
+      //return true;
+    }
+  });
+</script>
+
+[Source](https://beta.observablehq.com/@benmaier/a-visually-more-appealing-fisheye-function)

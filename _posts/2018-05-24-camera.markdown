@@ -1,0 +1,46 @@
+---
+layout: post
+title:  "Video contouring"
+date:   2018-05-24 12:00:00 +0200
+categories: explore
+---
+
+_Note: reading the camera is only allowed from http*s* websites_
+
+<p><span id="viewofcamera"></span> Use my camera</p>
+<div class="fullwidth">
+  <div id="K"></div>
+</div>
+
+<script type="module">
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.0.1?module";
+  import notebook from "https://api.observablehq.com/@fil/video-contouring.js?key=07b17d835d904f19";
+  const renders = {
+    "K": "#K",
+    "viewof camera": "#viewofcamera",
+  };
+  Runtime.load(notebook, (variable) => {
+    const selector = renders[variable.name];
+    if (selector) {
+      return new Inspector(document.querySelector(selector));
+    } else {
+      // return true; // useful only for the rare notebooks that uses side effects
+    }
+  });
+</script>
+
+
+<style>
+/* https://css-tricks.com/full-width-containers-limited-width-parents/ */
+.fullwidth {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+#display { min-height: 40vw }
+</style>
+
+[Source](https://api.observablehq.com/@fil/tissots-indicatrix)
