@@ -5,24 +5,37 @@ date:   2018-05-24 12:00:00 +0200
 categories: explore
 ---
 
-<p id="viewofp"></p>
-<div class="fullwidth">
-  <div id="display"></div>
-</div>
+<div id="visual"></div>
 
 <script type="module">
-  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.0.1?module";
   import notebook from "https://api.observablehq.com/@fil/tissots-indicatrix.js?key=1ef8c91929d29461";
   const renders = {
-    "display": "#display",
-    "viewof p": "#viewofp",
+    "viewof p": "p",
+    "display": "div.fullwidth",
   };
+
+  const target = document.querySelector("#visual");
+  for (let i in renders) {
+    let s = renders[i], a = s.match(/^\w+/);
+    if (a) {
+      renders[i] = document.createElement(a[0]);
+      // we will do without the wrapper if https://github.com/observablehq/notebook-runtime/issues/115
+      let wrapper = document.createElement(a[0]);
+      target.appendChild(wrapper);
+      wrapper.appendChild(renders[i]);
+      if (a = s.match(/\.(\w+)$/))
+        renders[i].parentNode.className = a[1]; 
+    }
+    else
+      renders[i] = document.querySelector(renders[i]);
+  }
+
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.0.1?module";
   Runtime.load(notebook, (variable) => {
-    const selector = renders[variable.name];
-    if (selector) {
-      return new Inspector(document.querySelector(selector));
+    if (renders[variable.name]) {
+      return new Inspector(renders[variable.name]);
     } else {
-      // return true; // useful only for the rare notebooks that uses side effects
+      // return true; // uncomment if hidden cells must be eval'd
     }
   });
 </script>
