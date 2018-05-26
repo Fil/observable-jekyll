@@ -41,4 +41,4 @@ categories: explore
 #display { min-height: 40vw }
 </style>
 
-[Source](https://api.observablehq.com/@fil/tissots-indicatrix)
+[Source](https://beta.observablehq.com/@fil/tissots-indicatrix)

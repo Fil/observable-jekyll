@@ -43,4 +43,4 @@ _Note: reading the camera is only allowed from http*s* websites_
 #display { min-height: 40vw }
 </style>
 
-[Source](https://api.observablehq.com/@fil/tissots-indicatrix)
+[Source](https://beta.observablehq.com/@fil/video-contouring)
