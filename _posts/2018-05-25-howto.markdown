@@ -17,8 +17,12 @@ Let’s create an HTML container for each of these cells:
   <div id="display"></div>
 ```
 
-Now, we need to find the “ES Module” URL, which in our case is `"https://api.observablehq.com/@fil/tissots-indicatrix.js?key=1ef8c91929d29461"`. Two options:
-- if this is your notebook, go to the `...` menu and click "ES module". If there is no such menu, you first need to share or publish the notebook.
+Now, we need to find the module URL, which in our case links to `https://api.observablehq.com/@fil/tissots-indicatrix.js?key=1ef8c91929d29461`.
+
+![menu]({{ "assets/img/download-code-menu.png" | absolute_url }}){:style="width:207px; float:right;"} <!-- as you can see I don't know jekyll -->
+
+Two options:
+- if this is your notebook, go to the `...` menu and click “Download code”. If there is no such menu, you first need to share or publish the notebook.
 - if this is _not_ your notebook, you will probably have to fork it, then share the fork (no need to publish it), and the menu will appear.
 
 Our next step is to run this ES module with the Observable Runtime:
