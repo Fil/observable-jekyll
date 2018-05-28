@@ -1,0 +1,66 @@
+---
+layout: post
+title:  "Overpass"
+date:   2018-05-28 11:00:00 +0200
+categories: explore
+---
+
+<div id="visual"></div>
+
+<script type="module">
+  import notebook from "https://api.observablehq.com/d/804f540fcbbf5113.js?key=5286f08cda15c18d";
+  const renders = {
+    "mapboxglCSS": "div",
+    "viewof city": "p",
+    "mapContainer": "div.fullwidth",
+    "query": "div.code",
+  };
+
+  const target = document.querySelector("#visual");
+  for (let i in renders) {
+    let s = renders[i], a = s.match(/^\w+/);
+    if (a) {
+      renders[i] = document.createElement(a[0]);
+      // we will do without the wrapper if https://github.com/observablehq/notebook-runtime/issues/115
+      let wrapper = document.createElement(a[0]);
+      target.appendChild(wrapper);
+      wrapper.appendChild(renders[i]);
+      if (a = s.match(/\.(\w+)$/))
+        renders[i].parentNode.className = a[1]; 
+    }
+    else
+      renders[i] = document.querySelector(renders[i]);
+  }
+
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.0.1?module";
+  Runtime.load(notebook, (variable) => {
+console.log(variable.name);
+    if (renders[variable.name]) {
+      return new Inspector(renders[variable.name]);
+    } else {
+      return true; // uncomment if hidden cells must be eval'd
+    }
+  });
+</script>
+
+
+<style>
+/* https://css-tricks.com/full-width-containers-limited-width-parents/ */
+.fullwidth {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+#display { min-height: 40vw }
+
+.code {
+	background: #eee;
+	padding: 1em;
+	font-family: monospace;
+}
+</style>
+
+[Source](https://beta.observablehq.com/@vgeorge/overpass)
