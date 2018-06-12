@@ -2,6 +2,7 @@
 layout: post
 title:  "Vega Embed"
 date:   2018-05-23 09:00:00 +0200
+author: Dominik Moritz
 categories: explore
 ---
 

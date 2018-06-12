@@ -1,6 +1,7 @@
 ---
 layout: home
 title:  "How-To"
+author: Philippe Rivière
 ---
 
 ## … Embed an Observable Notebook in your CMS

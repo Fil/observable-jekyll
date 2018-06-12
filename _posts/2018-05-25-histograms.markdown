@@ -2,6 +2,7 @@
 layout: post
 title:  "Histograms"
 date:   2018-05-25 09:00:00 +0200
+author: John Burn Murdoch
 categories: explore
 ---
 
