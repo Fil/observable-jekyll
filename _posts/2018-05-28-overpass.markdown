@@ -60,6 +60,7 @@ console.log(variable.name);
 	background: #eee;
 	padding: 1em;
 	font-family: monospace;
+	white-space: pre;
 }
 </style>
 
