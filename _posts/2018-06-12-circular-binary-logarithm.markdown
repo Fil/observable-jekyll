@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Circular Binary Logarithms"
-date:   2018-05-28 11:00:00 +0200
+date:   2018-06-12 19:00:00 +0200
 author: Jacob Rus
 categories: explore
 ---
