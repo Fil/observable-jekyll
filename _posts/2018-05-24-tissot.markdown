@@ -8,34 +8,34 @@ categories: explore
 <div id="visual"></div>
 
 <script type="module">
+
+  // NOTEBOOK CONFIGURATION
   import notebook from "https://api.observablehq.com/@fil/tissots-indicatrix.js?key=1ef8c91929d29461";
+
+  // BOILERPLATE
+  const target = document.querySelector("#visual");
   const renders = {
     "viewof p": "p",
     "display": "div.fullwidth",
   };
 
-  const target = document.querySelector("#visual");
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.2.0?module";
   for (let i in renders) {
     let s = renders[i], a = s.match(/^\w+/);
     if (a) {
       renders[i] = document.createElement(a[0]);
-      // we will do without the wrapper if https://github.com/observablehq/notebook-runtime/issues/115
-      let wrapper = document.createElement(a[0]);
-      target.appendChild(wrapper);
-      wrapper.appendChild(renders[i]);
+      target.appendChild(renders[i]);
       if (a = s.match(/\.(\w+)$/))
-        renders[i].parentNode.className = a[1]; 
+        renders[i].className = a[1]; 
     }
     else
       renders[i] = document.querySelector(renders[i]);
   }
-
-  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.0.1?module";
   Runtime.load(notebook, (variable) => {
     if (renders[variable.name]) {
       return new Inspector(renders[variable.name]);
     } else {
-      // return true; // uncomment if hidden cells must be eval'd
+      // return true; // uncomment to run hidden cells
     }
   });
 </script>
@@ -51,7 +51,7 @@ categories: explore
   margin-left: -50vw;
   margin-right: -50vw;
 }
-#display { min-height: 40vw }
+#visual { min-height: 40vw }
 </style>
 
 [Source](https://beta.observablehq.com/@fil/tissots-indicatrix)

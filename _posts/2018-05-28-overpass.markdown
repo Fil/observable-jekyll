@@ -8,6 +8,8 @@ categories: explore
 <div id="visual"></div>
 
 <script type="module">
+
+  // NOTEBOOK CONFIGURATION
   import notebook from "https://api.observablehq.com/d/804f540fcbbf5113.js?key=5286f08cda15c18d";
   const renders = {
     "mapboxglCSS": "div",
@@ -16,6 +18,7 @@ categories: explore
     "query": "div.code",
   };
 
+  // BOILERPLATE
   const target = document.querySelector("#visual");
   for (let i in renders) {
     let s = renders[i], a = s.match(/^\w+/);
@@ -32,13 +35,13 @@ categories: explore
       renders[i] = document.querySelector(renders[i]);
   }
 
-  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.0.1?module";
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.2.0?module";
   Runtime.load(notebook, (variable) => {
 console.log(variable.name);
     if (renders[variable.name]) {
       return new Inspector(renders[variable.name]);
     } else {
-      return true; // uncomment if hidden cells must be eval'd
+      return true; // uncomment to run hidden cells
     }
   });
 </script>
@@ -63,5 +66,8 @@ console.log(variable.name);
 	white-space: pre;
 }
 </style>
+
+
+_Note: this is one of the rare notebooks that needs to run all cells. See how it's done in the source._
 
 [Source](https://beta.observablehq.com/@vgeorge/overpass)

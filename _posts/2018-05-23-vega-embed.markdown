@@ -5,28 +5,41 @@ date:   2018-05-23 09:00:00 +0200
 categories: explore
 ---
 
-(This example doesn’t work because the datasets are unreachable from this website.)
 
-<div id="cars"></div>
-<div id="lite"></div>
-<div class="fullwidth">
-  <div id="life"></div>
-</div>
+<div id="visual"></div>
+
+_Note: The last example doesn’t work, because the dataset is unreachable from this website._
 
 <script type="module">
+
+  // NOTEBOOK CONFIGURATION
   import notebook from "https://api.observablehq.com/d/8582ee54f32ffbbe.js?key=5a56073debd3654b";
-  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.0.1?module";
+
+  const target = document.querySelector("#visual");
   const renders = {
-    "cars": "#cars",
-    "lite": "#lite",
-    "life": "#life",
+    "cars": "div",
+    "lite": "div",
+    "life": "div",
   };
+
+  // BOILERPLATE
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.2.0?module";
+  for (let i in renders) {
+    let s = renders[i], a = s.match(/^\w+/);
+    if (a) {
+      renders[i] = document.createElement(a[0]);
+      target.appendChild(renders[i]);
+      if (a = s.match(/\.(\w+)$/))
+        renders[i].className = a[1]; 
+    }
+    else
+      renders[i] = document.querySelector(renders[i]);
+  }
   Runtime.load(notebook, (variable) => {
-    const selector = renders[variable.name];
-    if (selector) {
-      return new Inspector(document.querySelector(selector));
+    if (renders[variable.name]) {
+      return new Inspector(renders[variable.name]);
     } else {
-      // return true; // useful only for the rare notebooks that uses side effects
+      // return true; // uncomment to run hidden cells
     }
   });
 </script>
@@ -42,7 +55,9 @@ categories: explore
   margin-left: -50vw;
   margin-right: -50vw;
 }
-#display { min-height: 40vw }
+.observablehq--error { color: red }
+#visual { min-height: 40vw }
 </style>
+
 
 [Source](https://beta.observablehq.com/@domoritz/hello-vega-embed)

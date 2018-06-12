@@ -29,17 +29,20 @@ Our next step is to run this code — technically, an ES module — with the O
 
 ```
 <script type="module">
-  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.0.1?module";
   import notebook from "https://api.observablehq.com/@fil/tissots-indicatrix.js?key=1ef8c91929d29461";
+
   const renders = {
     "viewof p": "#viewof-p",
     "display": "#display",
   };
+
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.2.0?module";
+  for (let i in renders)
+    renders[i] = document.querySelector(renders[i]);
+
   Runtime.load(notebook, (variable) => {
-    const selector = renders[variable.name];
-    if (selector) {
-      return new Inspector(document.querySelector(selector));
-    }
+    if (renders[variable.name])
+      return new Inspector(renders[variable.name]);
   });
 </script>
 ```
@@ -72,29 +75,47 @@ Update the HTML:
 
 et voilà:
 
+
 ----
 
 # Tissot’s indicatrix
 
-<p id="viewof-p"></p>
-<div class="fullwidth">
-  <div id="display"></div>
-</div>
+<div id="visual"></div>
 
 <script type="module">
-  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.0.1?module";
+
+  // NOTEBOOK CONFIGURATION
   import notebook from "https://api.observablehq.com/@fil/tissots-indicatrix.js?key=1ef8c91929d29461";
+
+  const target = document.querySelector("#visual");
   const renders = {
-    "viewof p": "#viewof-p",
-    "display": "#display",
+    "viewof p": "p",
+    "display": "div.fullwidth",
   };
+
+
+  // BOILERPLATE
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.2.0?module";
+  for (let i in renders) {
+    let s = renders[i], a = s.match(/^\w+/);
+    if (a) {
+      renders[i] = document.createElement(a[0]);
+      target.appendChild(renders[i]);
+      if (a = s.match(/\.(\w+)$/))
+        renders[i].className = a[1]; 
+    }
+    else
+      renders[i] = document.querySelector(renders[i]);
+  }
   Runtime.load(notebook, (variable) => {
-    const selector = renders[variable.name];
-    if (selector) {
-      return new Inspector(document.querySelector(selector));
+    if (renders[variable.name]) {
+      return new Inspector(renders[variable.name]);
+    } else {
+      // return true; // uncomment to run hidden cells
     }
   });
 </script>
+
 
 <style>
 /* https://css-tricks.com/full-width-containers-limited-width-parents/ */
@@ -106,6 +127,7 @@ et voilà:
   margin-left: -50vw;
   margin-right: -50vw;
 }
+#visual { min-height: 40vw }
 </style>
 
 [Source](https://beta.observablehq.com/@fil/tissots-indicatrix)
@@ -113,21 +135,9 @@ et voilà:
 
 ----
 
-### _Notes_
-
-1. There is probably a more concise way to do this, I don’t like the repetition of ids that we currently have.
-
-2. some notebooks require that all cells execute, even if they are not seen as necessary in the dependency tree computed by Observable. In those cases, such as the [breakout example](./2018/05/24/breakout.html), you must add:
-
-```
-    if (selector) {
-      return new Inspector(document.querySelector(selector));
-    } else {
-      return true;
-    }
-```
+Note: in practice, we use a bit more boilerplate code, which will generate the markup from a list of renders. Do “view source” to grab it :)
 
 
-_The other posts on this site demonstrate various examples and techniques. Have fun!_
+_The other posts on this site demonstrate various examples and techniques, as well as a more detailed boilerplate. Have fun!_
 
 > 

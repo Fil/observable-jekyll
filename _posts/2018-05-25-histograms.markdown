@@ -11,18 +11,32 @@ categories: explore
 </div>
 
 <script type="module">
-  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.0.1?module";
+
+  // NOTEBOOK CONFIGURATION
   import notebook from "https://api.observablehq.com/d/6e56831344136167.js?key=cdc0537b1eb54812";
   const renders = {
     "viewof threshold": "#viewof-threshold",
     "chart": "#chart",
   };
+
+  // BOILERPLATE
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.2.0?module";
+  for (let i in renders) {
+    let s = renders[i], a = s.match(/^\w+/);
+    if (a) {
+      renders[i] = document.createElement(a[0]);
+      target.appendChild(renders[i]);
+      if (a = s.match(/\.(\w+)$/))
+        renders[i].className = a[1]; 
+    }
+    else
+      renders[i] = document.querySelector(renders[i]);
+  }
   Runtime.load(notebook, (variable) => {
-    const selector = renders[variable.name];
-    if (selector) {
-      return new Inspector(document.querySelector(selector));
+    if (renders[variable.name]) {
+      return new Inspector(renders[variable.name]);
     } else {
-      // return true; // useful only for the rare notebooks that uses side effects
+      // return true; // uncomment to run hidden cells
     }
   });
 </script>
@@ -38,7 +52,9 @@ categories: explore
   margin-left: -50vw;
   margin-right: -50vw;
 }
-#display { min-height: 40vw }
+.observablehq--error { color: red }
+#visual { min-height: 40vw }
 </style>
+
 
 [Source](https://beta.observablehq.com/@johnburnmurdoch/histograms)
