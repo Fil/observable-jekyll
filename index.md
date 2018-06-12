@@ -135,7 +135,7 @@ et voilà:
 
 ----
 
-Note: in practice, we use a bit more boilerplate code, which will generate the markup from a list of renders. Do “view source” to grab it :)
+Note: in practice, we use a bit more boilerplate code, which will generate the markup from a list of renders. View source or click on “[Code](./code)” to grab it.
 
 
 _The other posts on this site demonstrate various examples and techniques, as well as a more detailed boilerplate. Have fun!_
