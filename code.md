@@ -4,7 +4,9 @@ title: Code
 permalink: /code/
 ---
 
-Grab your copy here:
+Grab the code below for Jekyll or any other CMS:
+
+
 
 ```{html}
 <div id="visual"></div>
@@ -43,6 +45,11 @@ Grab your copy here:
   });
 </script>
 ```
+
+Or see similar How-tos for :
+- [react](https://beta.observablehq.com/@jashkenas/how-to-embed-a-notebook-in-a-react-app), by Jeremy Ashkenas;
+- [ydill](https://mathisonian.github.io/observable-idyll/), by Matthew Conlen;
+- [codepen](https://codepen.io/jashkenas/pen/gzZXPG), by J.A.
 
 <style>
 pre, code {
