@@ -14,7 +14,7 @@ Grab the code below for Jekyll or any other CMS:
 <script type="module">
 
   // NOTEBOOK CONFIGURATION
-  import notebook from "https://api.observablehq.com/@fil/tissots-indicatrix.js?key=1ef8c91929d29461";
+  import notebook from "https://api.observablehq.com/@fil/tissots-indicatrix.js";
 
   const target = document.querySelector("#visual");
   const renders = {

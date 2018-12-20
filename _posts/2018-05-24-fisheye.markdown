@@ -11,7 +11,7 @@ categories: explore
 <script type="module">
 
   // NOTEBOOK CONFIGURATION
-  import notebook from "https://api.observablehq.com/d/ccba2c4738b03c7e.js?key=84a042ea455b5761";
+  import notebook from "https://api.observablehq.com/d/ccba2c4738b03c7e.js";
   const renders = {
     "display": "div",
   };

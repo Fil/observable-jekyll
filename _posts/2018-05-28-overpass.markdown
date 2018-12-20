@@ -11,7 +11,7 @@ categories: explore
 <script type="module">
 
   // NOTEBOOK CONFIGURATION
-  import notebook from "https://api.observablehq.com/d/804f540fcbbf5113.js?key=5286f08cda15c18d";
+  import notebook from "https://api.observablehq.com/d/804f540fcbbf5113.js";
   const renders = {
     "mapboxglCSS": "div",
     "viewof city": "p",

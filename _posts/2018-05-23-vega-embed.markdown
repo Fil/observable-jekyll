@@ -14,7 +14,7 @@ _Note: The last example doesn’t work, because the dataset is unreachable from 
 <script type="module">
 
   // NOTEBOOK CONFIGURATION
-  import notebook from "https://api.observablehq.com/d/8582ee54f32ffbbe.js?key=5a56073debd3654b";
+  import notebook from "https://api.observablehq.com/d/8582ee54f32ffbbe.js";
 
   const target = document.querySelector("#visual");
   const renders = {

@@ -18,7 +18,7 @@ Let’s create an HTML container for each of these cells:
   <div id="display"></div>
 ```
 
-Now, we need to find the module URL, which in our case links to `https://api.observablehq.com/@fil/tissots-indicatrix.js?key=1ef8c91929d29461`.
+Now, we need to find the module URL, which in our case links to `https://api.observablehq.com/@fil/tissots-indicatrix.js`.
 
 ![menu]({{ "assets/img/download-code-menu.png" | absolute_url }}){:style="width:207px; float:right;"} <!-- as you can see I don't know jekyll -->
 
@@ -30,7 +30,7 @@ Our next step is to run this code — technically, an ES module — with the O
 
 ```
 <script type="module">
-  import notebook from "https://api.observablehq.com/@fil/tissots-indicatrix.js?key=1ef8c91929d29461";
+  import notebook from "https://api.observablehq.com/@fil/tissots-indicatrix.js";
 
   const renders = {
     "viewof p": "#viewof-p",
@@ -86,7 +86,7 @@ et voilà:
 <script type="module">
 
   // NOTEBOOK CONFIGURATION
-  import notebook from "https://api.observablehq.com/@fil/tissots-indicatrix.js?key=1ef8c91929d29461";
+  import notebook from "https://api.observablehq.com/@fil/tissots-indicatrix.js";
 
   const target = document.querySelector("#visual");
   const renders = {

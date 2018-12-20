@@ -14,7 +14,7 @@ categories: explore
 <script type="module">
 
   // NOTEBOOK CONFIGURATION
-  import notebook from "https://api.observablehq.com/d/6e56831344136167.js?key=cdc0537b1eb54812";
+  import notebook from "https://api.observablehq.com/d/6e56831344136167.js";
   const renders = {
     "viewof threshold": "#viewof-threshold",
     "chart": "#chart",

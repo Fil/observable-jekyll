@@ -81,7 +81,7 @@ categories: explore
 <script type="module">
 
   // NOTEBOOK CONFIGURATION
-  import notebook from "https://api.observablehq.com/@jashkenas/breakout.js?key=a1c505cd06bba653";
+  import notebook from "https://api.observablehq.com/@jashkenas/breakout.js";
   const renders = {
     "viewof c": "#game",
     "score": "#score",

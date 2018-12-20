@@ -16,7 +16,7 @@ _Note: reading the camera is only allowed from http*s* websites_
 <script type="module">
 
   // NOTEBOOK CONFIGURATION
-  import notebook from "https://api.observablehq.com/@fil/video-contouring.js?key=07b17d835d904f19";
+  import notebook from "https://api.observablehq.com/@fil/video-contouring.js";
   const renders = {
     "K": "#K",
     "viewof camera": "#viewofcamera",
