@@ -6,9 +6,9 @@ author: Philippe Rivière
 
 ## … Embed an Observable Notebook in your CMS
 
-This website shows you how to embed an observable notebook in you usual blog. In this case, we are using Jekyll for the sake of simplicity, but any other CMS would work, as long as it allows you to add some HTML, CSS and JavaScript. It is a direct application of Jeremy Ashkenas’ [Downloading and embedding notebooks](https://beta.observablehq.com/@jashkenas/downloading-and-embedding-notebooks) tutorial.
+This website shows you how to embed an observable notebook in you usual blog. In this case, we are using Jekyll for the sake of simplicity, but any other CMS would work, as long as it allows you to add some HTML, CSS and JavaScript. It is a direct application of Jeremy Ashkenas’ [Downloading and embedding notebooks](https://observablehq.com/@jashkenas/downloading-and-embedding-notebooks) tutorial.
 
-First, we go to the notebook we want to embed, and decide which named cells we want to show on our blog. In the case of my [Tissot’s indicatrix notebook](https://beta.observablehq.com/@fil/tissots-indicatrix), I want 
+First, we go to the notebook we want to embed, and decide which named cells we want to show on our blog. In the case of my [Tissot’s indicatrix notebook](https://observablehq.com/@fil/tissots-indicatrix), I want 
 `viewof p` and `display`.
 
 Let’s create an HTML container for each of these cells: 
@@ -37,7 +37,7 @@ Our next step is to run this code — technically, an ES module — with the O
     "display": "#display",
   };
 
-  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.2.0?module";
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@2?module";
   for (let i in renders)
     renders[i] = document.querySelector(renders[i]);
 
@@ -96,7 +96,7 @@ et voilà:
 
 
   // BOILERPLATE
-  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.2.0?module";
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@2?module";
   for (let i in renders) {
     let s = renders[i], a = s.match(/^\w+/);
     if (a) {
@@ -131,7 +131,7 @@ et voilà:
 #visual { min-height: 40vw }
 </style>
 
-[Source](https://beta.observablehq.com/@fil/tissots-indicatrix)
+[Source](https://observablehq.com/@fil/tissots-indicatrix)
 
 
 ----

@@ -23,7 +23,7 @@ _Note: reading the camera is only allowed from http*s* websites_
   };
 
   // BOILERPLATE
-  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.2.0?module";
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@2?module";
   for (let i in renders) {
     let s = renders[i], a = s.match(/^\w+/);
     if (a) {
@@ -59,4 +59,4 @@ _Note: reading the camera is only allowed from http*s* websites_
 #visual { min-height: 40vw }
 </style>
 
-[Source](https://beta.observablehq.com/@fil/video-contouring)
+[Source](https://observablehq.com/@fil/video-contouring)

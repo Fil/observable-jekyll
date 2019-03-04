@@ -20,7 +20,7 @@ categories: explore
     "display": "div.fullwidth",
   };
 
-  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.2.0?module";
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@2?module";
   for (let i in renders) {
     let s = renders[i], a = s.match(/^\w+/);
     if (a) {
@@ -55,4 +55,4 @@ categories: explore
 #visual { min-height: 40vw }
 </style>
 
-[Source](https://beta.observablehq.com/@fil/tissots-indicatrix)
+[Source](https://observablehq.com/@fil/tissots-indicatrix)

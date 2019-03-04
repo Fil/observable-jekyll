@@ -20,7 +20,7 @@ categories: explore
 
 
   // BOILERPLATE
-  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.2.0?module";
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@2?module";
   for (let i in renders) {
     let s = renders[i], a = s.match(/^\w+/);
     if (a) {
@@ -63,4 +63,4 @@ categories: explore
 </style>
 
 
-[Source](https://beta.observablehq.com/@jrus/circular-binary-logarithms)
+[Source](https://observablehq.com/@jrus/circular-binary-logarithms)

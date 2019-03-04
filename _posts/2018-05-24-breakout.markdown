@@ -71,8 +71,8 @@ categories: explore
   <div id="game"></div>
   <div id="newgame"></div>
   <div class="explanation">
-    This is a simple demonstration of <a href="https://beta.observablehq.com/@jashkenas/downloading-and-embedding-notebooks">embedding
-    Observable notebooks</a>. It pulls the game code live from the <a href="https://beta.observablehq.com/@jashkenas/breakout">original
+    This is a simple demonstration of <a href="https://observablehq.com/@jashkenas/downloading-and-embedding-notebooks">embedding
+    Observable notebooks</a>. It pulls the game code live from the <a href="https://observablehq.com/@jashkenas/breakout">original
     notebook source</a>.
   </div>
 </div>
@@ -90,7 +90,7 @@ categories: explore
   };
 
   // BOILERPLATE
-  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.2.0?module";
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@2?module";
   for (let i in renders) {
     let s = renders[i], a = s.match(/^\w+/);
     if (a) {
@@ -127,4 +127,4 @@ categories: explore
 </style>
 
 
-[Source](https://beta.observablehq.com/@jashkenas/breakout)
+[Source](https://observablehq.com/@jashkenas/breakout)

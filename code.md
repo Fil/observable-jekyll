@@ -24,7 +24,7 @@ Grab the code below for Jekyll or any other CMS:
 
 
   // BOILERPLATE
-  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.2.0?module";
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@2?module";
   for (let i in renders) {
     let s = renders[i], a = s.match(/^\w+/);
     if (a) {
@@ -47,7 +47,7 @@ Grab the code below for Jekyll or any other CMS:
 ```
 
 Or see similar How-tos for :
-- [react](https://beta.observablehq.com/@jashkenas/how-to-embed-a-notebook-in-a-react-app), by Jeremy Ashkenas;
+- [react](https://observablehq.com/@jashkenas/how-to-embed-a-notebook-in-a-react-app), by Jeremy Ashkenas;
 - [ydill](https://mathisonian.github.io/observable-idyll/), by Matthew Conlen;
 - [codepen](https://codepen.io/jashkenas/pen/gzZXPG), by J.A.
 

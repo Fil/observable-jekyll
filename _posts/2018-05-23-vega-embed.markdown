@@ -24,7 +24,7 @@ _Note: The last example doesn’t work, because the dataset is unreachable from 
   };
 
   // BOILERPLATE
-  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.2.0?module";
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@2?module";
   for (let i in renders) {
     let s = renders[i], a = s.match(/^\w+/);
     if (a) {
@@ -61,4 +61,4 @@ _Note: The last example doesn’t work, because the dataset is unreachable from 
 </style>
 
 
-[Source](https://beta.observablehq.com/@domoritz/hello-vega-embed)
+[Source](https://observablehq.com/@domoritz/hello-vega-embed)

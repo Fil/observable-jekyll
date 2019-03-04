@@ -36,7 +36,7 @@ categories: explore
       renders[i] = document.querySelector(renders[i]);
   }
 
-  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.2.0?module";
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@2?module";
   Runtime.load(notebook, (variable) => {
 console.log(variable.name);
     if (renders[variable.name]) {
@@ -71,4 +71,4 @@ console.log(variable.name);
 
 _Note: this is one of the rare notebooks that needs to run all cells. See how it's done in the source._
 
-[Source](https://beta.observablehq.com/@vgeorge/overpass)
+[Source](https://observablehq.com/@vgeorge/overpass)

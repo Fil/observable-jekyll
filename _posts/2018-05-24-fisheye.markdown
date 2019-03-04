@@ -19,7 +19,7 @@ categories: explore
   const target = document.querySelector("#visual");
 
   // BOILERPLATE
-  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1.2.0?module";
+  import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@2?module";
   for (let i in renders) {
     let s = renders[i], a = s.match(/^\w+/);
     if (a) {
@@ -56,4 +56,4 @@ categories: explore
 </style>
 
 
-[Source](https://beta.observablehq.com/@benmaier/a-visually-more-appealing-fisheye-function)
+[Source](https://observablehq.com/@benmaier/a-visually-more-appealing-fisheye-function)
