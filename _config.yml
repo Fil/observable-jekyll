@@ -21,7 +21,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "/observable-jekyll" # the subpath of your site, e.g. /blog
 url: "https://visionscarto.net" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: recifs
-github_username:  recifs
+github_username:  Fil
 
 # Build settings
 markdown: kramdown
